@@ -1,6 +1,6 @@
 <h1>listado de Actividades</h1>
 <p>A continuación se listan las actividades con sus respectivos estados:</p>
-<a class="btn btn-primary btn-block" routerLink="/crear-actividad">
+<a class="btn btn-primary btn-lg" routerLink="/crear-actividad">
   Crear Actividad
 </a>
 <table class="table">
@@ -24,7 +24,7 @@
       <td>{{ actividad.diasRetraso }}</td>
       <td>{{ actividad.empleadoAsignado?.nombre }}</td>
       <td>
-        <a class="btn btn-success m-1 btn-sm" routerLink="/editar-actividad">Editar</a>
+        <a class="btn btn-success m-1 btn-sm" [routerLink]="['/editar-actividad', actividad.actividadID]">Editar</a>
         <a class="btn btn-danger btn-sm" (click)="eliminarActividad(actividad.actividadID)">Eliminar</a>
       </td>
     </tr>

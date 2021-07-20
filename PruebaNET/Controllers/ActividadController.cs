@@ -23,8 +23,14 @@ namespace PruebaNET.Controllers
         [HttpGet]
         public IActionResult listarActividades()
         {
-            var actividades = repositorio.ListarActividad();
+            var actividades = repositorio.ListarActividades();
             return Ok(actividades);
+        }
+
+        [HttpGet("{id:int}")]
+        public IActionResult ObtenerActividad(int id) {
+            var actividad = repositorio.ObtenerActividad(id);
+            return Ok(actividad);
         }
 
         [HttpPost]

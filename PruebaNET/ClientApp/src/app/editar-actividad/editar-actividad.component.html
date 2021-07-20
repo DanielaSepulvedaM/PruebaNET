@@ -9,13 +9,18 @@
         <option [ngValue]="emp" *ngFor="let emp of empleados">{{ emp.nombre }}</option>
       </select>
     </div>
+    <div class="form-group col">
+      <select [(ngModel)]="model.estado" name="estados">
+        <option [ngValue]="est" *ngFor="let est of estados">{{ est.nombre }}</option>
+      </select>
+    </div>
   </div>
   <div class="form-row">
     <div class="form-group col">
       <input type="text" class="form-control" placeholder="Descripcion" [(ngModel)]="model.descripcion" name="descripcion" />
     </div>
   </div>
-  <button class="btn btn-primary btn-block" (click)="crearActividad()">
+  <button class="btn btn-primary btn-block" (click)="modificarActividad()">
     Crear
   </button>
 </form>

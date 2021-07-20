@@ -9,7 +9,8 @@ namespace Reporitorio
     public interface IRepositorioActividades
     {
         IQueryable<Actividad> Actividades { get; }
-        IEnumerable<Actividad> ListarActividad();
+        IEnumerable<Actividad> ListarActividades();
+        Actividad ObtenerActividad(int actividadId);
         void CrearActividad(Actividad actividad);
         void EliminarActividad(int actividadID);
         void EditarActividad(Actividad actividad);

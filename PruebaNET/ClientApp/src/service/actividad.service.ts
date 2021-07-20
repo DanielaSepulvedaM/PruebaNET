@@ -27,7 +27,7 @@ export class ActividadService {
     return this.http.delete(this.baseUrl + 'api/Actividad/' + actividadId)
   }
 
-  cargarActividad(): Observable<object> {
-    return null;
+  cargarActividad(id: number): Observable<Actividad> {
+    return this.http.get<Actividad>(this.baseUrl + 'api/actividad/' + id)
   }
 }

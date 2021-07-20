@@ -16,6 +16,21 @@ namespace Reporitorio
         }
         public IQueryable<Actividad> Actividades => context.Actividad;
 
+        public Actividad ObtenerActividad(int actividadId)
+        {
+            var actividad = context.Actividad.FirstOrDefault(a => a.ActividadID == actividadId);
+
+            var empleado = (from empl in context.Empleado
+                           join empAsign in context.ActividadEmpleado on empl.EmpleadoID equals empAsign.EmpleadoID
+                           where empAsign.ActividadID == actividadId
+                           select empl).FirstOrDefault();
+
+            if (empleado != null)
+                actividad.EmpleadoAsignado = empleado;
+
+            return actividad;
+        }
+
         public void CrearActividad(Actividad actividad)
         {
             actividad.EstadoID = 1;
@@ -42,7 +57,7 @@ namespace Reporitorio
             }
         }
 
-        public IEnumerable<Actividad> ListarActividad()
+        public IEnumerable<Actividad> ListarActividades()
         {
             var actividades = (from act in context.Actividad
                          join est in context.Estado on act.EstadoID equals est.EstadoID

@@ -27,7 +27,7 @@ import { EditarActividadComponent } from './editar-actividad/editar-actividad.co
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'crear-actividad', component: CrearActividadComponent },
-      { path: 'editar-actividad', component: EditarActividadComponent }
+      { path: 'editar-actividad/:id', component: EditarActividadComponent }
     ])
   ],
   providers: [],
