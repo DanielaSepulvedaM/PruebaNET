@@ -1,0 +1,34 @@
+<h1>listado de Actividades</h1>
+<p>A continuación se listan las actividades con sus respectivos estados:</p>
+<a class="btn btn-primary btn-block" routerLink="/crear-actividad">
+  Crear Actividad
+</a>
+<table class="table">
+  <thead class="table table-borderless ">
+    <tr>
+      <th>ActividadID</th>
+      <th>Fecha Estimada</th>
+      <th>Descripcion</th>
+      <th>Estado</th>
+      <th>Dias de Retraso</th>
+      <th>Empleado</th>
+      <th>Edit/Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let actividad of actividades">
+      <td>{{ actividad.actividadID }}</td>
+      <td>{{ actividad.fechaEstimadas | date:'short'}}</td>
+      <td>{{ actividad.descripcion }}</td>
+      <td>{{ actividad.estado.nombre}}</td>
+      <td>{{ actividad.diasRetraso }}</td>
+      <td>{{ actividad.empleadoAsignado?.nombre }}</td>
+      <td>
+        <a class="btn btn-success m-1 btn-sm" routerLink="/editar-actividad">Editar</a>
+        <a class="btn btn-danger btn-sm" (click)="eliminarActividad(actividad.actividadID)">Eliminar</a>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
